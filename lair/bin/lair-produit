@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Usage : lair-produit <identifiant> "<Nom du produit>"  (identifiant en minuscules, sans espace)
+set -euo pipefail
+SLUG="$1"; NOM="$2"
+DIR="$HOME/.hermes/lair/produits/$SLUG"
+[ -e "$DIR" ] && { echo "Le produit $SLUG existe déjà."; exit 1; }
+mkdir -p "$DIR"
+sed -e "s|{{NOM}}|$NOM|g" -e "s|{{SLUG}}|$SLUG|g" -e "s|{{DATE}}|$(date +%F)|g" \
+  "$HOME/.hermes/lair/modeles/FICHE.md" > "$DIR/FICHE.md"
+hermes kanban boards create "$SLUG" --name "$NOM" --description "Produit $NOM. Fiche : $DIR/FICHE.md"
+echo "- $NOM ($SLUG) — niveau 1 — lancé le $(date +%F)" >> "$HOME/.hermes/lair/produits/INDEX.md"
+echo "Produit créé : $NOM ($SLUG)"

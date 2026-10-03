@@ -1,0 +1,11 @@
+[Unit]
+Description=Shadow's Lair - backend Hermes pour le bureau 3D
+After=network-online.target
+
+[Service]
+ExecStart=/bin/sh -c 'HERMES_DASHBOARD_SESSION_TOKEN="$(grep "^HERMES3D_OFFICE_TOKEN=" %h/.hermes/.env | cut -d= -f2)" exec %h/.local/bin/hermes serve --host 127.0.0.1 --port 9120 --skip-build'
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target

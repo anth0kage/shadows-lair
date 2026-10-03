@@ -416,6 +416,7 @@ kanban:
 # Working directory behavior:
 #   - CLI (`hermes` command): Uses "." (current directory where you run hermes)
 #   - Gateway/messaging/cron: Uses terminal.cwd here; legacy .env cwd values are deprecated
+  orchestrator_profile: default
 cron:
   catch_up_missed: true  # False skips past-grace recurring misses after planned downtime.
 
@@ -2404,3 +2405,14 @@ mcp_servers:
     url: http://127.0.0.1:4007/api/mcp
     headers:
       Authorization: Bearer ${POSTIZ_API_KEY}
+  porkbun:
+    command: npx
+    args:
+      - -y
+      - '@porkbunllc/mcp-server'
+    env:
+      PORKBUN_API_KEY: ${PORKBUN_API_KEY}
+      PORKBUN_SECRET_API_KEY: ${PORKBUN_SECRET_API_KEY}
+provider_routing:
+  require_parameters: true
+  data_collection: deny

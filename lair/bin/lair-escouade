@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Usage : lair-escouade <identifiant>  — crée le chef de produit et le support d'un produit
+set -euo pipefail
+SLUG="$1"
+DIR="$HOME/.hermes/lair/produits/$SLUG"
+[ -f "$DIR/FICHE.md" ] || { echo "Produit $SLUG introuvable."; exit 1; }
+NOM=$(head -1 "$DIR/FICHE.md" | sed 's/^# //')
+for ROLE in chef support; do
+  P="$SLUG-$ROLE"
+  if [ "$ROLE" = chef ]; then
+    DESC="Chef de produit de $NOM : pilote le tableau $SLUG, arbitre ses priorités, rend compte à Igris"
+  else
+    DESC="Support client de $NOM : répond aux clients et prospects, escalade ce qui exige un humain"
+  fi
+  hermes profile create "$P" --clone --clone-from default --description "$DESC" >/dev/null
+  { sed -e "s|{{NOM}}|$NOM|g" -e "s|{{SLUG}}|$SLUG|g" "$HOME/.hermes/lair/modeles/$ROLE.md"; echo; \
+    cat "$HOME/.hermes/lair/regles-communes.md"; } > "$HOME/.hermes/profiles/$P/SOUL.md"
+  echo "Ombre levée : $P"
+done
+sed -i "s|^- \(.*($SLUG)\) — niveau 1|- \1 — niveau 2|" "$HOME/.hermes/lair/produits/INDEX.md"
+sed -i "s|^Niveau : 1 .*|Niveau : 2 (escouade créée le $(date +%F))|" "$DIR/FICHE.md"

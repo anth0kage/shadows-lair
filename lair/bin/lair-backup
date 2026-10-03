@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Sauvegarde chiffrée du Lair vers Backblaze B2. À lancer en root (tâche planifiée).
+set -euo pipefail
+set -a; source /etc/lair-backup.env; set +a
+H=/home/monarch
+STAGE=/var/backups/lair
+rm -rf "$STAGE"; mkdir -p "$STAGE"; chmod 700 "$STAGE"
+# Coffre : copie cohérente de la base
+sqlite3 "$H/lair-services/vaultwarden/data/db.sqlite3" ".backup '$STAGE/vaultwarden.sqlite3'"
+# Postiz : export de la base
+if docker ps --format "{{.Names}}" | grep -qx postiz-postgres; then docker exec postiz-postgres pg_dump -U postiz-user postiz-db-local > "$STAGE/postiz.sql"; fi
+# Hermes : sauvegarde officielle (config, mémoire, sessions, secrets)
+sudo -u monarch -H "$H/.local/bin/hermes" backup -o /tmp/lair-hermes.zip >/dev/null
+mv /tmp/lair-hermes.zip "$STAGE/hermes.zip"
+PATHS=("$STAGE" "$H/lair-services" "$H/hermes3d/.env")
+UPLOADS=/var/lib/docker/volumes/postiz_postiz-uploads/_data
+[ -d "$UPLOADS" ] && PATHS+=("$UPLOADS")
+restic backup --quiet "${PATHS[@]}" --exclude "$H/lair-services/vaultwarden/data/db.sqlite3*"
+restic forget --quiet --keep-daily 7 --keep-weekly 4 --keep-monthly 6 --prune
+rm -rf "$STAGE"
+echo "Sauvegarde OK : $(date '+%F %H:%M')"

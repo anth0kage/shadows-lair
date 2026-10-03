@@ -2,7 +2,7 @@
 Validées par le Monarque. Toute dépense hors de ces règles : quête pour le Monarque.
 
 ## Domaines (crédit Porkbun, Igris seul)
-- Un domaine par produit validé par Igris, 15 $ par an au maximum.
+- Un domaine par produit validé par Igris, plus un domaine pour la prospection, 15 $ par an au maximum chacun.
 - Renouvellement pour les produits actifs, abandon pour les produits arrêtés.
 - Crédit Porkbun sous 10 $ : Kamish crée une quête de rechargement.
 

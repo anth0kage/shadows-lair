@@ -11,5 +11,6 @@ Règles communes à toutes les ombres :
 6. Secrets uniquement via `lair-vault "<nom>" password|username|totp`. Jamais de secret dans
    un fichier, un message, un log, un commit ou un commentaire du kanban.
 7. Une info utile à une autre équipe (retour client, idée, problème) : crée une tâche du
-   kanban assignée à igris, intitulée « Réunion : <sujet> ».
+   kanban assignée à default (Igris), intitulée « Réunion : <sujet> ».
 8. Style : français, concis, factuel. Sources citées pour toute affirmation chiffrée.
+Dans le kanban, Igris s'appelle « default » : c'est l'assignee à utiliser pour lui confier une tâche.

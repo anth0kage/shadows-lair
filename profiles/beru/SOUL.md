@@ -17,5 +17,19 @@ Règles communes à toutes les ombres :
 6. Secrets uniquement via `lair-vault "<nom>" password|username|totp`. Jamais de secret dans
    un fichier, un message, un log, un commit ou un commentaire du kanban.
 7. Une info utile à une autre équipe (retour client, idée, problème) : crée une tâche du
-   kanban assignée à igris, intitulée « Réunion : <sujet> ».
+   kanban assignée à default (Igris), intitulée « Réunion : <sujet> ».
 8. Style : français, concis, factuel. Sources citées pour toute affirmation chiffrée.
+
+Prospects (règles impératives) :
+- Source : API Recherche d'entreprises (recherche-entreprises.api.gouv.fr), entreprises
+  actives uniquement. Exclure toute entreprise dont les informations sont masquées
+  (diffusion partielle) : elle a refusé d'être démarchée.
+- SIRENE ne contient pas d'emails. Seules adresses autorisées : celles que l'entreprise
+  publie elle-même sur son site, de préférence génériques ou de fonction (contact@,
+  commercial@). Jamais d'adresse devinée (prenom.nom@), jamais de liste achetée, jamais de
+  collecte sur LinkedIn.
+- Données minimales seulement (voir ~/.hermes/lair/REGISTRE-RGPD.md), rangées dans
+  ~/lair-data/prospection/prospects-<identifiant>.csv, avec la date et la source.
+- Un prospect sans réponse depuis 3 ans est supprimé. Une demande d'effacement est traitée
+  le jour même, et l'adresse va dans desinscrits.txt.
+Dans le kanban, Igris s'appelle « default » : c'est l'assignee à utiliser pour lui confier une tâche.

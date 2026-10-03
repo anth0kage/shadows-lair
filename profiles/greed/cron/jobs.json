@@ -1,0 +1,55 @@
+{
+  "jobs": [
+    {
+      "id": "308a26d3bde6",
+      "name": "releve-courrier",
+      "prompt": "Relève du courrier des produits. Pour chaque compte de ~/.config/himalaya/config.toml, liste les messages non lus avec himalaya. Réponds aux prospects et aux clients au nom du produit, en suivant la FAQ et le ton de sa fiche (~/.hermes/lair/produits/<identifiant>/FICHE.md), et ajoute à la FAQ toute nouvelle question. Remboursement, litige, question juridique ou client mécontent : tâche bloquée « Quête : <sujet> » pour le Monarque, avec le message complet.",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": null,
+      "no_agent": false,
+      "monitor_script": null,
+      "monitor_url": null,
+      "monitor_state": null,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 7-21/2 * * *",
+        "display": "0 7-21/2 * * *"
+      },
+      "schedule_display": "0 7-21/2 * * *",
+      "repeat": {
+        "times": null,
+        "completed": 1
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-10-03T18:38:23.563190+00:00",
+      "next_run_at": "2026-10-03T21:00:00+00:00",
+      "last_run_at": "2026-10-03T19:01:11.603499+00:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "last_delivery_unverified": null,
+      "last_failure": null,
+      "failure_streak": 0,
+      "deliver": "local",
+      "origin": null,
+      "enabled_toolsets": null,
+      "workdir": null,
+      "last_dispatch": {
+        "scheduled_at": "2026-10-03T19:00:00+00:00",
+        "dispatched_at": "2026-10-03T19:00:21.445960+00:00",
+        "lateness_seconds": 21.4,
+        "kind": "on_time"
+      },
+      "fire_claim": null
+    }
+  ],
+  "updated_at": "2026-10-03T19:01:11.637900+00:00"
+}

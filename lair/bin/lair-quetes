@@ -1,0 +1,46 @@
+#!/usr/bin/env python3
+"""Journal des quêtes du Monarque : lit le kanban d'Hermes et écrit une page HTML triée."""
+import datetime, html, json, pathlib, subprocess
+
+H = pathlib.Path.home()
+HERMES = str(H / ".local/bin/hermes")
+OUT = H / ".hermes/lair/quetes"
+OUT.mkdir(parents=True, exist_ok=True)
+produits = H / ".hermes/lair/produits"
+boards = [None] + sorted(p.name for p in produits.iterdir() if p.is_dir()) if produits.exists() else [None]
+
+quetes = []
+for b in boards:
+    cmd = [HERMES, "kanban"] + (["--board", b] if b else []) + ["list", "--json"]
+    try:
+        res = subprocess.run(cmd, capture_output=True, text=True, timeout=180)
+        taches = json.loads(res.stdout or "[]")
+    except Exception:
+        continue
+    for t in taches:
+        titre = (t.get("title") or "").strip()
+        if titre.lower().startswith("quête") and t.get("status") not in ("done", "archived"):
+            t["_tableau"] = b or "général"
+            quetes.append(t)
+
+quetes.sort(key=lambda t: (-(t.get("priority") or 0), t.get("created_at") or 0))
+RANGS = {3: "Quête principale", 2: "Quête importante"}
+now = datetime.datetime.now().strftime("%d/%m/%Y %H:%M")
+parts = [f"<h1>Journal des quêtes</h1><p class='m'>Mis à jour le {now} · {len(quetes)} quête(s) active(s)</p>"]
+for i, t in enumerate(quetes, 1):
+    rang = RANGS.get(t.get("priority") or 0, "Quête secondaire")
+    corps = t.get("body") or "Pas de détail : demande à Igris de compléter cette quête."
+    parts.append(
+        f"<section><h2>{i}. {html.escape(t['title'])}</h2>"
+        f"<p class='m'>{rang} · tableau : {html.escape(t['_tableau'])} · id : {t['id']}</p>"
+        f"<pre>{html.escape(corps)}</pre></section>"
+    )
+if not quetes:
+    parts.append("<p>Aucune quête en attente. Le Lair travaille seul.</p>")
+style = ("body{font-family:system-ui,sans-serif;background:#0d0b14;color:#e8e3f5;max-width:760px;"
+         "margin:auto;padding:16px}h1{color:#b48cff}h2{font-size:1.1em;margin:0 0 4px}"
+         "section{border:1px solid #3a2d5c;border-radius:10px;padding:12px;margin:14px 0;background:#161226}"
+         ".m{color:#9a90b5;font-size:.9em}pre{white-space:pre-wrap;font-family:inherit;margin:8px 0 0}")
+page = ("<!doctype html><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>"
+        f"<title>Quêtes du Monarque</title><style>{style}</style>" + "".join(parts))
+(OUT / "index.html").write_text(page, encoding="utf-8")

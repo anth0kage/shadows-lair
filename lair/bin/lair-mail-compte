@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# Usage : lair-mail-compte <identifiant> <adresse> "<Nom affiché>"
+# Le mot de passe doit déjà être dans le coffre sous le nom mail-<identifiant>.
+set -euo pipefail
+SLUG="$1"; ADDR="$2"; NOM="$3"
+cat >> ~/.config/himalaya/config.toml << TOML
+
+[accounts.$SLUG]
+email = "$ADDR"
+display-name = "$NOM"
+backend.type = "imap"
+backend.host = "imap.purelymail.com"
+backend.port = 993
+backend.encryption.type = "tls"
+backend.login = "$ADDR"
+backend.auth.type = "password"
+backend.auth.cmd = "lair-vault mail-$SLUG password"
+message.send.backend.type = "smtp"
+message.send.backend.host = "smtp.purelymail.com"
+message.send.backend.port = 465
+message.send.backend.encryption.type = "tls"
+message.send.backend.login = "$ADDR"
+message.send.backend.auth.type = "password"
+message.send.backend.auth.cmd = "lair-vault mail-$SLUG password"
+folder.aliases.inbox = "INBOX"
+folder.aliases.sent = "Sent"
+TOML
+echo "Compte mail ajouté : $ADDR"

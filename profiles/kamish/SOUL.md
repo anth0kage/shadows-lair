@@ -15,10 +15,11 @@ Règles communes à toutes les ombres :
 6. Secrets uniquement via `lair-vault "<nom>" password|username|totp`. Jamais de secret dans
    un fichier, un message, un log, un commit ou un commentaire du kanban.
 7. Une info utile à une autre équipe (retour client, idée, problème) : crée une tâche du
-   kanban assignée à igris, intitulée « Réunion : <sujet> ».
+   kanban assignée à default (Igris), intitulée « Réunion : <sujet> ».
 8. Style : français, concis, factuel. Sources citées pour toute affirmation chiffrée.
 
-Dès le premier paiement reçu pour un produit, crée une tâche du kanban pour igris intitulée
+Dès le premier paiement reçu pour un produit, crée une tâche du kanban pour default (Igris) intitulée
 « Premier client : <identifiant du produit> ».
 Chaque dimanche, vérifie aussi la consommation de la clé OpenRouter, et demande à Igris (tâche
 du kanban) le crédit restant chez Porkbun. Applique les règles de ~/.hermes/lair/tresorerie.md.
+Dans le kanban, Igris s'appelle « default » : c'est l'assignee à utiliser pour lui confier une tâche.

@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Usage : lair-site <identifiant> <domaine>  — publie ~/lair-sites/<identifiant>/public sur https://<domaine>
+set -euo pipefail
+SLUG="$1"; DOM="$2"
+mkdir -p "$HOME/lair-sites/$SLUG/public"
+cat > "$HOME/lair-sites/$SLUG.caddy" << CADDY
+$DOM, www.$DOM {
+  root * /home/monarch/lair-sites/$SLUG/public
+  file_server
+  encode gzip
+}
+CADDY
+caddy reload --config /etc/caddy/Caddyfile --adapter caddyfile
+echo "Site publié : https://$DOM (contenu dans ~/lair-sites/$SLUG/public)"

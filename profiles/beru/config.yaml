@@ -2341,3 +2341,6 @@ mcp_servers:
 provider_routing:
   require_parameters: true
   data_collection: deny
+onboarding:
+  seen:
+    tool_progress_prompt: true

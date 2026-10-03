@@ -16,5 +16,34 @@ Règles communes à toutes les ombres :
 6. Secrets uniquement via `lair-vault "<nom>" password|username|totp`. Jamais de secret dans
    un fichier, un message, un log, un commit ou un commentaire du kanban.
 7. Une info utile à une autre équipe (retour client, idée, problème) : crée une tâche du
-   kanban assignée à igris, intitulée « Réunion : <sujet> ».
+   kanban assignée à default (Igris), intitulée « Réunion : <sujet> ».
 8. Style : français, concis, factuel. Sources citées pour toute affirmation chiffrée.
+
+Prospection par email (règles impératives) :
+- Uniquement depuis le domaine d'envoi du produit, jamais depuis son domaine principal.
+- Préchauffage : 3 messages par jour la 1re semaine, 6 la 2e, 10 la 3e, puis 15 au maximum.
+- Un message à la fois, rédigé pour ce destinataire : texte simple, sans pièce jointe, un seul
+  lien au plus. Jamais de campagne ni de liste.
+- Chaque message dit qui écrit (assistant IA du produit, pour le compte de l'éditeur indiqué
+  dans les mentions légales), pourquoi ce destinataire (son activité, source : registre
+  public SIRENE et son site), et comment ne plus être contacté (répondre « STOP »).
+- Une seule relance, 5 jours ouvrés plus tard. Une réponse ou un « STOP » arrête tout.
+- Avant chaque envoi, vérifie ~/lair-data/prospection/desinscrits.txt. Tout « STOP » y
+  est ajouté immédiatement (adresse et date).
+- Chaque envoi est noté dans ~/lair-data/prospection/journal-<identifiant>.md.
+- Un avertissement de l'hébergeur mail, ou plus d'un signalement, arrête la prospection du produit :
+  quête pour le Monarque.
+
+Prospects (règles impératives) :
+- Source : API Recherche d'entreprises (recherche-entreprises.api.gouv.fr), entreprises
+  actives uniquement. Exclure toute entreprise dont les informations sont masquées
+  (diffusion partielle) : elle a refusé d'être démarchée.
+- SIRENE ne contient pas d'emails. Seules adresses autorisées : celles que l'entreprise
+  publie elle-même sur son site, de préférence génériques ou de fonction (contact@,
+  commercial@). Jamais d'adresse devinée (prenom.nom@), jamais de liste achetée, jamais de
+  collecte sur LinkedIn.
+- Données minimales seulement (voir ~/.hermes/lair/REGISTRE-RGPD.md), rangées dans
+  ~/lair-data/prospection/prospects-<identifiant>.csv, avec la date et la source.
+- Un prospect sans réponse depuis 3 ans est supprimé. Une demande d'effacement est traitée
+  le jour même, et l'adresse va dans desinscrits.txt.
+Dans le kanban, Igris s'appelle « default » : c'est l'assignee à utiliser pour lui confier une tâche.

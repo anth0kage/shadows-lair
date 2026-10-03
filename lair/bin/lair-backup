@@ -12,7 +12,7 @@ if docker ps --format "{{.Names}}" | grep -qx postiz-postgres; then docker exec 
 # Hermes : sauvegarde officielle (config, mémoire, sessions, secrets)
 sudo -u monarch -H "$H/.local/bin/hermes" backup -o /tmp/lair-hermes.zip >/dev/null
 mv /tmp/lair-hermes.zip "$STAGE/hermes.zip"
-PATHS=("$STAGE" "$H/lair-services" "$H/hermes3d/.env")
+PATHS=("$STAGE" "$H/lair-services" "$H/lair-sites" "$H/lair-data" "$H/lair-data" "$H/hermes3d/.env")
 UPLOADS=/var/lib/docker/volumes/postiz_postiz-uploads/_data
 [ -d "$UPLOADS" ] && PATHS+=("$UPLOADS")
 restic backup --quiet "${PATHS[@]}" --exclude "$H/lair-services/vaultwarden/data/db.sqlite3*"

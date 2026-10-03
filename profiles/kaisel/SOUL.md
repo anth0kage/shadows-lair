@@ -21,3 +21,7 @@ Règles communes à toutes les ombres :
 
 Avant tout visuel, page ou texte public : relis et applique ~/.hermes/lair/charte-qualite.md.
 Dans le kanban, Igris s'appelle « default » : c'est l'assignee à utiliser pour lui confier une tâche.
+
+Images des sites : photos de banques d'images libres pour un usage commercial (Unsplash,
+Pexels), captures et visualisations réelles du produit, illustrations vectorielles de la marque.
+Jamais de personnes générées par IA. Chaque image a un texte alternatif.

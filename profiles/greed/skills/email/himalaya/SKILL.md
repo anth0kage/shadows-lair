@@ -99,6 +99,37 @@ folder.aliases.trash = "Trash"
 > emails to recipients. Always use `folder.aliases.X` (plural, dotted
 > keys, directly under `[accounts.NAME]`).
 
+## v2 Configuration Format (mandatory for himalaya ≥ 2.0)
+
+The v1 `backend` table and flat `backend.X` dotted keys are ignored since v2.
+Backends are sub-tables under the account, and SASL auth is per-mechanism:
+
+```toml
+[accounts.example]
+email = "you@example.com"
+display-name = "Your Name"
+default = true
+
+[accounts.example.imap]
+server = "imap.example.com:993"
+tls.provider = "rustls"         # or "native-tls"
+sasl.login.username = "you@example.com"
+sasl.login.password = {cmd = "pass show email/imap"}
+
+[accounts.example.smtp]
+server = "smtp.example.com:465"
+tls.provider = "rustls"
+sasl.login.username = "you@example.com"
+sasl.login.password = {cmd = "pass show email/smtp"}
+
+[accounts.example.folder.aliases]
+inbox = "INBOX"
+sent = "Sent"
+```
+
+`sasl` variants: `anonymous`, `login`, `plain`, `oauthbearer`, `xoauth2`, `scram-sha-256`.
+`sasl.<mechanism>.password` variants: `raw` (plaintext), `cmd` (shell command), `command` (alias).
+
 ## Hermes Integration Notes
 
 - **Reading, listing, searching, moving, deleting** all work directly through the terminal tool

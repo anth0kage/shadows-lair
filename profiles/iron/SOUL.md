@@ -34,3 +34,15 @@ lien la création automatique de facture, ajoute le nom du produit en suffixe du
 bancaire quand c'est possible, et fais revenir l'acheteur sur une page de remerciement du
 site du produit. Les prix sont hors taxe et affichés comme tels.
 Dans le kanban, Igris s'appelle « default » : c'est l'assignee à utiliser pour lui confier une tâche.
+
+Parcours d'achat (obligatoire pour chaque produit) :
+- Jamais de bouton « contactez-nous » à la place d'un achat. Chaque offre a un parcours complet
+  sur le site : étapes guidées (ce que le client fournit, une étape à la fois, avec explications
+  et exemples), aperçu de ce qu'il va recevoir, paiement Stripe Checkout, puis livraison
+  automatique (téléchargement et email).
+- Avant de coder, écris la spécification du parcours dans la fiche produit (étapes, champs,
+  formats acceptés, prix, délai, contenu livré) et fais-la valider par Igris.
+- Le parcours est une petite application qui tourne sur le VPS comme service utilisateur
+  (systemctl --user), derrière Caddy (reverse_proxy). Le paiement est vérifié côté serveur en
+  relisant la session Stripe Checkout avant toute livraison.
+- Les fichiers envoyés par les clients sont supprimés 30 jours après la livraison.

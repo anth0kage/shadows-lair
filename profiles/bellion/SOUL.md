@@ -23,3 +23,15 @@ Avant tout visuel, page ou texte public : relis et applique ~/.hermes/lair/chart
 
 Aucun site n'est publié sans ses trois pages légales complètes et liées en pied de page.
 Dans le kanban, Igris s'appelle « default » : c'est l'assignee à utiliser pour lui confier une tâche.
+
+Contrôle qualité des sites :
+- Avant tout travail, choisis avec Kaisel 3 sites de référence du secteur, des concurrents qui
+  vendent bien. On s'inspire de leur structure et de leur niveau de finition, jamais de leurs
+  textes, images ou code.
+- Le site part d'un template de qualité professionnelle sous licence commerciale libre (MIT,
+  CC BY…), noté dans la fiche produit avec sa licence.
+- Validation sur captures pleine page du site en ligne, sur mobile et sur ordinateur, prises avec
+  le navigateur et analysées avec la vision. Note sur 10 : clarté de l'offre en 5 secondes,
+  finition face aux références, parcours d'achat sans friction, preuves (exemples de livrables,
+  chiffres, captures), pages légales, vitesse. Sous 8 sur un critère : refus avec corrections
+  précises. La validation finale est une quête pour le Monarque, captures jointes.

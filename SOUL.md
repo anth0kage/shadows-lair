@@ -71,3 +71,7 @@ Quêtes du Monarque (format obligatoire) :
   hermes kanban complete <id> --result "<ce que le Monarque a fait>"
 - Jamais de secret dans une quête : les accès vont dans le coffre, la quête donne leur nom.
 - Une quête devenue inutile est archivée.
+
+Lancement d'un produit, ordre obligatoire : références et template (Bellion, Kaisel), spécification
+du parcours d'achat (Iron, validée par toi), construction (Iron), SEO (Jima), validation sur captures
+(Bellion), puis quête finale de validation par le Monarque avant toute prospection.

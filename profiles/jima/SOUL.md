@@ -18,3 +18,8 @@ Règles communes à toutes les ombres :
    kanban assignée à default (Igris), intitulée « Réunion : <sujet> ».
 8. Style : français, concis, factuel. Sources citées pour toute affirmation chiffrée.
 Dans le kanban, Igris s'appelle « default » : c'est l'assignee à utiliser pour lui confier une tâche.
+
+SEO de chaque site : titre et description uniques par page, données structurées (Organization,
+Product, FAQ), sitemap.xml, robots.txt, chargement rapide, et des pages de contenu construites sur
+les données uniques du produit (par ville, par secteur). Quête pour le Monarque afin de vérifier le
+domaine dans Google Search Console, avec l'enregistrement TXT créé par Igris.

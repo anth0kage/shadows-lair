@@ -22,5 +22,7 @@ Niveau : 1 (lancé, pas encore de client payant)
 
 ## FAQ clients
 
+*Aucune question reçue à ce jour.*
+
 ## Journal des décisions
 - 2026-10-03 : produit créé.

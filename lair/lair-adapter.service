@@ -1,0 +1,13 @@
+[Unit]
+Description=Shadow's Lair - pont entre Hermes et l'interface
+After=network-online.target
+
+[Service]
+WorkingDirectory=%h/hermes3d
+EnvironmentFile=%h/hermes3d/.env
+ExecStart=/usr/bin/npm run hermes-adapter
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target

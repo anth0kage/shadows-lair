@@ -1,0 +1,13 @@
+[Unit]
+Description=Shadow's Lair - interface 3D
+After=lair-adapter.service
+
+[Service]
+WorkingDirectory=%h/hermes3d
+EnvironmentFile=%h/hermes3d/.env
+ExecStart=/usr/bin/npm run start
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target

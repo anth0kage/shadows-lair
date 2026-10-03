@@ -1,0 +1,22 @@
+# Tout ignorer par défaut, puis autoriser seulement ce qui définit le Lair
+*
+!.gitignore
+!SOUL.md
+!config.yaml
+!lair/
+!lair/**
+!skills/
+!skills/**
+!cron/
+!cron/jobs.json
+!profiles/
+!profiles/*/
+!profiles/*/SOUL.md
+!profiles/*/config.yaml
+!profiles/*/skills/
+!profiles/*/skills/**
+!profiles/*/cron/
+!profiles/*/cron/jobs.json
+# Jamais de secrets, même par erreur
+.env
+*.env

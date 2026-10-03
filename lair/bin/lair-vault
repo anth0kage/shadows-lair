@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Usage : lair-vault "<nom de l'élément>" [password|username|totp|notes]
+set -euo pipefail
+source ~/.hermes/lair-vault.env
+export BW_CLIENTID BW_CLIENTSECRET BW_PASSWORD
+if bw status | grep -q '"status":"unauthenticated"'; then
+  bw login --apikey >/dev/null
+fi
+SESSION=$(bw unlock --passwordenv BW_PASSWORD --raw)
+bw sync --session "$SESSION" >/dev/null
+bw get "${2:-password}" "$1" --session "$SESSION"

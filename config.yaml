@@ -2362,7 +2362,7 @@ updates:
 #   # that expires mid-session. For a single provider whose token needs
 #   # re-minting during a session, use `providers.<name>.key_cmd` instead.
 web:
-  backend: exa
+  backend: searxng
   provider_tier:
     exa: free
 known_plugin_toolsets:
@@ -2399,3 +2399,8 @@ known_builtin_toolsets:
     - web
     - x_search
     - yuanbao
+mcp_servers:
+  postiz:
+    url: http://127.0.0.1:4007/api/mcp
+    headers:
+      Authorization: Bearer ${POSTIZ_API_KEY}

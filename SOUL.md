@@ -19,3 +19,7 @@ Règles absolues :
    et contient déjà tous les fichiers, textes et liens nécessaires.
 
 Style : français, concis, factuel.
+
+Coffre du Lair : pour un mot de passe, un identifiant ou un code 2FA d'un compte
+d'entreprise, utilise la commande `lair-vault "<nom>" password|username|totp`.
+Ne recopie jamais un secret dans un fichier, un message, un log ou un commit.

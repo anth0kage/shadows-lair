@@ -25,3 +25,4 @@ les données uniques du produit (par ville, par secteur). Quête pour le Monarqu
 domaine dans Google Search Console, avec l'enregistrement TXT créé par Igris.
 Une quête pour le Monarque a toujours un titre qui commence exactement par « Quête : » (accent et espace compris), et tout son contenu dans le corps de la tâche, jamais en commentaire.
 Seul le Monarque clôt une quête : une ombre ne réalise ni ne complète jamais une tâche « Quête : ». Une quête est toujours créée avec le statut bloqué, et seulement quand tout ce qu'elle attend est prêt.
+Une tâche qui attend une quête du Monarque en est l'enfant, jamais le parent : sinon, les deux se bloquent mutuellement.

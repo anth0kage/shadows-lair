@@ -1,0 +1,71 @@
+#!/usr/bin/env python3
+"""Bibliothèque du Lair : rapports et comptes rendus de réunion, mis en page et triés du plus récent au plus ancien."""
+import datetime, html, pathlib, shutil
+
+try:
+    import markdown
+
+    def rendu(texte):
+        # Les « < » sont neutralisés : aucun HTML brut écrit par une ombre n'est exécuté.
+        return markdown.markdown(texte.replace("<", "&lt;"), extensions=["tables", "fenced_code", "sane_lists"])
+except ImportError:
+    def rendu(texte):
+        return f"<pre style='white-space:pre-wrap'>{html.escape(texte)}</pre>"
+
+H = pathlib.Path.home()
+SOURCES = [("Rapports", H / ".hermes/lair/rapports", "rapports"),
+           ("Réunions", H / ".hermes/lair/reunions", "reunions")]
+OUT = H / "lair-data/bibliotheque"
+STYLE = ("body{font-family:system-ui,sans-serif;background:#0d0b14;color:#e8e3f5;max-width:900px;margin:auto;padding:16px}"
+         "h1{color:#b48cff}h2{color:#cbb8ff;margin:28px 0 10px}a{color:#8ec5ff}.m{color:#9a90b5;font-size:.9em}"
+         ".grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}"
+         ".c{border:1px solid #3a2d5c;border-radius:10px;padding:12px;background:#161226}.c h3{margin:0 0 6px;font-size:1em}"
+         ".b{display:inline-block;margin:8px 8px 0 0;padding:8px 14px;border-radius:6px;background:#5b3fa6;"
+         "color:#fff;text-decoration:none;border:0;font:inherit;cursor:pointer}"
+         ".doc{line-height:1.6;background:#161226;border:1px solid #3a2d5c;border-radius:10px;padding:16px 20px;margin-top:14px}"
+         ".doc h1,.doc h2,.doc h3{color:#cbb8ff}.doc table{border-collapse:collapse;width:100%;display:block;overflow-x:auto}"
+         ".doc th,.doc td{border:1px solid #3a2d5c;padding:6px 10px;text-align:left}"
+         ".doc code{background:#241c3d;padding:1px 5px;border-radius:4px}.doc pre{background:#241c3d;padding:10px;overflow-x:auto}")
+SCRIPT = ("<script>function copier(b){navigator.clipboard.writeText(document.getElementById('doc').innerText)"
+          ".then(function(){b.textContent='Copié';setTimeout(function(){b.textContent='Copier le texte'},1500)})}</script>")
+
+def page(titre, corps):
+    return ("<!doctype html><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>"
+            f"<title>{html.escape(titre)}</title><style>{STYLE}</style>{SCRIPT}{corps}")
+
+def titre_de(f, texte):
+    for ligne in texte.splitlines():
+        if ligne.startswith("# "):
+            return ligne[2:].strip()
+    return f.stem.replace("-", " ").capitalize()
+
+def resume_de(texte):
+    for ligne in texte.splitlines():
+        l = ligne.strip().lstrip("-*> ").strip()
+        if l and not ligne.startswith("#") and not l.startswith("|"):
+            return l[:180] + ("…" if len(l) > 180 else "")
+    return ""
+
+if OUT.exists():
+    shutil.rmtree(OUT)
+OUT.mkdir(parents=True)
+sections = []
+for libelle, dossier, sous in SOURCES:
+    (OUT / sous).mkdir()
+    fichiers = sorted(dossier.glob("*.md"), key=lambda f: f.stat().st_mtime, reverse=True) if dossier.exists() else []
+    cartes = []
+    for f in fichiers:
+        texte = f.read_text(encoding="utf-8", errors="replace")
+        titre = titre_de(f, texte)
+        date = datetime.datetime.fromtimestamp(f.stat().st_mtime).strftime("%d/%m/%Y %H:%M")
+        (OUT / sous / f"{f.stem}.html").write_text(page(titre,
+            f"<p><a href='../'>← Bibliothèque</a></p><p class='m'>{libelle} · {date} · {html.escape(f.name)}</p>"
+            f"<button class='b' onclick='copier(this)'>Copier le texte</button>"
+            f"<div class='doc' id='doc'>{rendu(texte)}</div>"), encoding="utf-8")
+        cartes.append(f"<div class='c'><h3>{html.escape(titre)}</h3><p class='m'>{date}</p>"
+                      f"<p>{html.escape(resume_de(texte))}</p><a class='b' href='{sous}/{f.stem}.html'>Lire</a></div>")
+    sections.append(f"<h2>{libelle}</h2><div class='grid'>{''.join(cartes) or '<p>Rien pour l’instant.</p>'}</div>")
+
+maj = datetime.datetime.now().strftime("%d/%m/%Y %H:%M")
+(OUT / "index.html").write_text(page("Bibliothèque du Lair",
+    f"<h1>Bibliothèque du Lair</h1><p class='m'>Mis à jour le {maj}</p>{''.join(sections)}"), encoding="utf-8")

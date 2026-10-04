@@ -1,0 +1,103 @@
+#!/usr/bin/env python3
+"""Galerie des kits de marque : visuels (aperçu, téléchargement unitaire et zip), couleurs et textes à copier."""
+import datetime, html, pathlib, re, shutil, zipfile
+
+H = pathlib.Path.home()
+SRC = H / "lair-sites"
+OUT = H / "lair-data/kits-galerie"
+IMAGES = (".png", ".svg", ".jpg", ".jpeg", ".webp")
+TEXTES = (".md", ".txt")
+STYLE = ("body{font-family:system-ui,sans-serif;background:#0d0b14;color:#e8e3f5;max-width:1000px;margin:auto;padding:16px}"
+         "h1{color:#b48cff}h2{color:#cbb8ff;margin:28px 0 10px}h3{margin:0 0 6px;font-size:1em}a{color:#8ec5ff}"
+         ".m{color:#9a90b5;font-size:.9em}"
+         ".grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}"
+         ".c{border:1px solid #3a2d5c;border-radius:10px;padding:12px;background:#161226}"
+         ".c img{width:100%;height:170px;object-fit:contain;background:#f4f2fa;border-radius:6px}"
+         ".t{white-space:pre-wrap;margin:8px 0;line-height:1.5}"
+         ".b{display:inline-block;margin:8px 8px 0 0;padding:8px 14px;border-radius:6px;background:#5b3fa6;"
+         "color:#fff;text-decoration:none;border:0;font:inherit;cursor:pointer}"
+         ".sw{display:flex;align-items:center;gap:10px;margin:6px 0}"
+         ".sw span{width:38px;height:38px;border-radius:8px;border:1px solid #3a2d5c;display:inline-block}")
+SCRIPT = ("<script>function copier(id,b){navigator.clipboard.writeText(document.getElementById(id).innerText)"
+          ".then(function(){b.textContent='Copié';setTimeout(function(){b.textContent='Copier'},1500)})}</script>")
+
+def page(titre, corps):
+    return ("<!doctype html><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>"
+            f"<title>{html.escape(titre)}</title><style>{STYLE}</style>{SCRIPT}{corps}")
+
+def nom(slug):
+    fiche = H / ".hermes/lair/produits" / slug / "FICHE.md"
+    if fiche.exists():
+        premiere = fiche.read_text(encoding="utf-8").splitlines()[:1]
+        if premiere and premiere[0].startswith("# "):
+            return premiere[0][2:].strip()
+    return slug
+
+def sections(texte, defaut):
+    """Découpe un fichier Markdown en blocs (titre, contenu) sur les titres ## ."""
+    blocs, titre, lignes = [], defaut, []
+    for ligne in texte.splitlines():
+        if ligne.startswith("## "):
+            if "".join(lignes).strip():
+                blocs.append((titre, "\n".join(lignes).strip()))
+            titre, lignes = ligne[3:].strip(), []
+        elif ligne.startswith("# "):
+            continue
+        else:
+            lignes.append(ligne)
+    if "".join(lignes).strip():
+        blocs.append((titre, "\n".join(lignes).strip()))
+    return blocs
+
+OUT.mkdir(parents=True, exist_ok=True)
+produits = []
+for kit in sorted(SRC.glob("*/kit")):
+    slug = kit.parent.name
+    dest = OUT / slug
+    if dest.exists():
+        shutil.rmtree(dest)
+    (dest / "fichiers").mkdir(parents=True)
+    fichiers = sorted(f for f in kit.iterdir() if f.is_file())
+    visuels = [f for f in fichiers if f.suffix.lower() in IMAGES]
+    for f in visuels:
+        shutil.copy2(f, dest / "fichiers" / f.name)
+    with zipfile.ZipFile(dest / f"{slug}-visuels.zip", "w", zipfile.ZIP_DEFLATED) as z:
+        for f in visuels:
+            z.write(f, f.name)
+
+    cartes = "".join(
+        f"<div class='c'><img src='fichiers/{html.escape(f.name)}' alt='{html.escape(f.name)}'>"
+        f"<h3>{html.escape(f.name)}</h3><a class='b' href='fichiers/{html.escape(f.name)}' download>Télécharger</a></div>"
+        for f in visuels)
+
+    couleurs, blocs, n = [], [], 0
+    for f in fichiers:
+        if f.suffix.lower() not in TEXTES or f.name.lower() == "readme.md":
+            continue
+        contenu = f.read_text(encoding="utf-8", errors="replace")
+        couleurs += re.findall(r"#[0-9A-Fa-f]{6}\b", contenu)
+        for titre, corps in sections(contenu, f.stem.capitalize()):
+            n += 1
+            blocs.append(f"<div class='c'><h3>{html.escape(titre)}</h3><div class='t' id='t{n}'>{html.escape(corps)}</div>"
+                         f"<button class='b' onclick=\"copier('t{n}',this)\">Copier</button></div>")
+    nuancier = "".join(
+        f"<div class='sw'><span style='background:{c}'></span><code id='c{i}'>{c.upper()}</code>"
+        f"<button class='b' style='margin:0' onclick=\"copier('c{i}',this)\">Copier</button></div>"
+        for i, c in enumerate(dict.fromkeys(couleurs)))
+
+    maj = datetime.datetime.now().strftime("%d/%m/%Y %H:%M")
+    corps = (f"<p><a href='../'>← Tous les kits</a></p><h1>Kit de marque — {html.escape(nom(slug))}</h1>"
+             f"<p class='m'>Mis à jour le {maj}</p>"
+             f"<h2>Visuels</h2><a class='b' href='{slug}-visuels.zip' download>Tout télécharger (.zip)</a>"
+             f"<div class='grid' style='margin-top:14px'>{cartes or '<p>Aucun visuel.</p>'}</div>")
+    if nuancier:
+        corps += f"<h2>Couleurs</h2><div class='c'>{nuancier}</div>"
+    corps += f"<h2>Textes</h2><div class='grid'>{''.join(blocs) or '<p>Aucun texte.</p>'}</div>"
+    (dest / "index.html").write_text(page(f"Kit {nom(slug)}", corps), encoding="utf-8")
+    produits.append((slug, nom(slug), len(visuels), n))
+
+liste = "".join(
+    f"<div class='c'><h3>{html.escape(nm)}</h3><p class='m'>{v} visuel(s) · {t} texte(s)</p>"
+    f"<a class='b' href='{s}/'>Ouvrir le kit</a></div>" for s, nm, v, t in produits
+) or "<p>Aucun kit pour l'instant.</p>"
+(OUT / "index.html").write_text(page("Kits du Lair", f"<h1>Kits de marque</h1><div class='grid'>{liste}</div>"), encoding="utf-8")

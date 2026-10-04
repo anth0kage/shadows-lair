@@ -2344,3 +2344,6 @@ provider_routing:
 image_gen:
   provider: openrouter
   model: recraft/recraft-v4.1-pro-vector
+onboarding:
+  seen:
+    tool_progress_prompt: true

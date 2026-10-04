@@ -30,3 +30,4 @@ Niveau : 1 (lancé, pas encore de client payant)
 ## Parcours d'achat
 - Spécification complète : /home/monarch/lair-sites/buildgreen/SPEC.md (rédigée par Iron le 2026-10-03, en attente de validation Igris, tâche t_20d66acf).
 - Résumé : page offres → 3 étapes guidées (périmètre, structure, récapitulatif avec aperçu) → Stripe Checkout (lien de paiement par offre, abonnement mensuel HT) → page succès vérifiée côté serveur → accès par lien magique + facture. Sur-mesure : formulaire uniquement, sans paiement. Remboursement : quête pour le Monarque.
+- 2026-10-04 : la quête de validation du site a été close par erreur par une ombre. Le site n'est PAS validé par le Monarque : aucune prospection avant que sa quête « Achat de contrôle » soit validée par lui.

@@ -1,26 +1,18 @@
-<!doctype html><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Quêtes du Monarque</title><style>body{font-family:system-ui,sans-serif;background:#0d0b14;color:#e8e3f5;max-width:760px;margin:auto;padding:16px}h1{color:#b48cff}h2{font-size:1.1em;margin:0 0 4px}section{border:1px solid #3a2d5c;border-radius:10px;padding:12px;margin:14px 0;background:#161226}.m{color:#9a90b5;font-size:.9em}pre{white-space:pre-wrap;font-family:inherit;margin:8px 0 0}</style><h1>Journal des quêtes</h1><p class='m'>Mis à jour le 03/10/2026 20:52 · 1 quête(s) active(s)</p><section><h2>1. Quête : page LinkedIn BuildGreen Analytics + connexion Postiz</h2><p class='m'>Quête secondaire · tableau : général · id : t_3ef03bbd</p><pre>QUÊTE — Créer la page LinkedIn de BuildGreen Analytics et la connecter à Postiz.
+<!doctype html><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Quêtes du Monarque</title><style>body{font-family:system-ui,sans-serif;background:#0d0b14;color:#e8e3f5;max-width:760px;margin:auto;padding:16px}h1{color:#b48cff}h2{font-size:1.1em;margin:0 0 4px}section{border:1px solid #3a2d5c;border-radius:10px;padding:12px;margin:14px 0;background:#161226}.m{color:#9a90b5;font-size:.9em}pre{white-space:pre-wrap;font-family:inherit;margin:8px 0 0}</style><h1>Journal des quêtes</h1><p class='m'>Mis à jour le 04/10/2026 00:50 · 1 quête(s) active(s)</p><section><h2>1. Quête : page LinkedIn BuildGreen Analytics + connexion Postiz</h2><p class='m'>Quête importante · tableau : général · id : t_3ef03bbd</p><pre>Récompense : Présence LinkedIn activée et connectée à Postiz — permet de publier du contenu et de démarrer la prospection B2B pour BuildGreen Analytics.
 
-Prérequis : le kit visuel de Kaisel doit être prêt dans ~/lair-sites/buildgreen/kit/ (tâche t_d40ff293).
+Durée estimée : 20 minutes.
 
-## Action 1 : Créer la page LinkedIn
-- Se connecter sur https://www.linkedin.com/
-- Aller dans Pages → Créer une page
-- Nom : BuildGreen Analytics
-- URL : linkedin.com/company/buildgreen-analytics (ou similaire)
-- Secteur : Services environnementaux / Développement de logiciels
-- Description : Scoring énergétique B2B pour prioriser les rénovations et garantir la conformité réglementaire. Données BDNB/CSTB sous Licence Ouverte v2.
-- Logo : utiliser le logo du kit Kaisel (~/lair-sites/buildgreen/kit/logo.svg)
-- Bannière : utiliser les visuels du kit
+Étapes :
+1. Se connecter sur https://www.linkedin.com/ avec le compte LinkedIn du Monarque.
+2. Aller dans Pages → Créer une page, nom : BuildGreen Analytics, URL : linkedin.com/company/buildgreen-analytics, secteur : Services environnementaux / Développement de logiciels.
+3. Description : « Scoring énergétique B2B pour prioriser les rénovations et garantir la conformité réglementaire. Données BDNB/CSTB sous Licence Ouverte v2. »
+4. Logo : ~/lair-sites/buildgreen/kit/logo.svg — Bannière : utiliser les visuels du kit (~/lair-sites/buildgreen/kit/).
+5. Se connecter sur Postiz, ajouter le compte LinkedIn dans Social Accounts, suivre le flux OAuth pour autoriser Postiz à publier sur la page.
+6. Stocker les identifiants dans le coffre : lair-vault-ajout &quot;linkedin-buildgreen&quot; &quot;URL de la page + email admin utilisé&quot;.
+7. Mettre à jour ~/.hermes/lair/produits/buildgreen/FICHE.md avec le nom du compte LinkedIn.
 
-## Action 2 : Connecter à Postiz
-- Se connecter sur Postiz
-- Ajouter le compte LinkedIn dans Social Accounts
-- Suivre le flux OAuth pour autoriser Postiz à publier sur la page
-- Une fois connecté, vérifier que le compte apparaît bien dans Postiz
+Fichiers :
+- ~/lair-sites/buildgreen/kit/logo.svg (logo)
+- ~/lair-sites/buildgreen/kit/README.md (instructions visuelles)
 
-## Action 3 : Noter les accès
-- Stocker les identifiants LinkedIn dans le coffre :
-  `lair-vault-ajout &quot;linkedin-buildgreen&quot; &quot;URL de la page + email admin&quot;`
-- Mettre à jour la fiche produit (~/.hermes/lair/produits/buildgreen/FICHE.md) avec le nom du compte LinkedIn
-
-Une fois terminé, commenter cette tâche avec « FAIT » et l&#x27;URL de la page.</pre></section>
+Pour valider : hermes kanban complete t_3ef03bbd --result &quot;Page LinkedIn créée : &lt;URL&gt; — connectée à Postiz, accès dans coffre linkedin-buildgreen, FICHE.md à jour.&quot;</pre></section>

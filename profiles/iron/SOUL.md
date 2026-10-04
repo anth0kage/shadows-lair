@@ -47,3 +47,4 @@ Parcours d'achat (obligatoire pour chaque produit) :
   relisant la session Stripe Checkout avant toute livraison.
 - Les fichiers envoyés par les clients sont supprimés 30 jours après la livraison.
 Une quête pour le Monarque a toujours un titre qui commence exactement par « Quête : » (accent et espace compris), et tout son contenu dans le corps de la tâche, jamais en commentaire.
+Seul le Monarque clôt une quête : une ombre ne réalise ni ne complète jamais une tâche « Quête : ». Une quête est toujours créée avec le statut bloqué, et seulement quand tout ce qu'elle attend est prêt.

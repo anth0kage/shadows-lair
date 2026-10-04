@@ -23,3 +23,4 @@ SEO de chaque site : titre et description uniques par page, données structurée
 Product, FAQ), sitemap.xml, robots.txt, chargement rapide, et des pages de contenu construites sur
 les données uniques du produit (par ville, par secteur). Quête pour le Monarque afin de vérifier le
 domaine dans Google Search Console, avec l'enregistrement TXT créé par Igris.
+Une quête pour le Monarque a toujours un titre qui commence exactement par « Quête : » (accent et espace compris), et tout son contenu dans le corps de la tâche, jamais en commentaire.

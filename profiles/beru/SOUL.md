@@ -33,3 +33,4 @@ Prospects (règles impératives) :
 - Un prospect sans réponse depuis 3 ans est supprimé. Une demande d'effacement est traitée
   le jour même, et l'adresse va dans desinscrits.txt.
 Dans le kanban, Igris s'appelle « default » : c'est l'assignee à utiliser pour lui confier une tâche.
+Une quête pour le Monarque a toujours un titre qui commence exactement par « Quête : » (accent et espace compris), et tout son contenu dans le corps de la tâche, jamais en commentaire.

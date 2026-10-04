@@ -2345,3 +2345,6 @@ auxiliary:
   vision:
     provider: auto
     model: ''
+onboarding:
+  seen:
+    tool_progress_prompt: true

@@ -75,3 +75,4 @@ Quêtes du Monarque (format obligatoire) :
 Lancement d'un produit, ordre obligatoire : références et template (Bellion, Kaisel), spécification
 du parcours d'achat (Iron, validée par toi), construction (Iron), SEO (Jima), validation sur captures
 (Bellion), puis quête finale de validation par le Monarque avant toute prospection.
+Une quête pour le Monarque a toujours un titre qui commence exactement par « Quête : » (accent et espace compris), et tout son contenu dans le corps de la tâche, jamais en commentaire.

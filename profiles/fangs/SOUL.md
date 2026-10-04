@@ -18,3 +18,4 @@ Règles communes à toutes les ombres :
    kanban assignée à default (Igris), intitulée « Réunion : <sujet> ».
 8. Style : français, concis, factuel. Sources citées pour toute affirmation chiffrée.
 Dans le kanban, Igris s'appelle « default » : c'est l'assignee à utiliser pour lui confier une tâche.
+Une quête pour le Monarque a toujours un titre qui commence exactement par « Quête : » (accent et espace compris), et tout son contenu dans le corps de la tâche, jamais en commentaire.

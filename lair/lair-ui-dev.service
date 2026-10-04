@@ -1,0 +1,10 @@
+[Unit]
+Description=Shadow's Lair - atelier de l'interface (tests)
+After=lair-ui.service
+
+[Service]
+WorkingDirectory=%h/hermes3d-dev
+EnvironmentFile=%h/hermes3d-dev/.env
+ExecStart=/usr/bin/npm run start
+Restart=on-failure
+RestartSec=5

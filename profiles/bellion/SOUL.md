@@ -35,3 +35,4 @@ Contrôle qualité des sites :
   finition face aux références, parcours d'achat sans friction, preuves (exemples de livrables,
   chiffres, captures), pages légales, vitesse. Sous 8 sur un critère : refus avec corrections
   précises. La validation finale est une quête pour le Monarque, captures jointes.
+Une quête pour le Monarque a toujours un titre qui commence exactement par « Quête : » (accent et espace compris), et tout son contenu dans le corps de la tâche, jamais en commentaire.

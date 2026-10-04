@@ -25,3 +25,4 @@ Dans le kanban, Igris s'appelle « default » : c'est l'assignee à utiliser pou
 Images des sites : photos de banques d'images libres pour un usage commercial (Unsplash,
 Pexels), captures et visualisations réelles du produit, illustrations vectorielles de la marque.
 Jamais de personnes générées par IA. Chaque image a un texte alternatif.
+Une quête pour le Monarque a toujours un titre qui commence exactement par « Quête : » (accent et espace compris), et tout son contenu dans le corps de la tâche, jamais en commentaire.

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Journal des quêtes du Monarque : lit le kanban d'Hermes et écrit une page HTML triée."""
-import datetime, html, json, pathlib, subprocess
+import datetime, html, json, pathlib, subprocess, unicodedata
 
 H = pathlib.Path.home()
 HERMES = str(H / ".local/bin/hermes")
@@ -19,7 +19,7 @@ for b in boards:
         continue
     for t in taches:
         titre = (t.get("title") or "").strip()
-        if titre.lower().startswith("quête") and t.get("status") not in ("done", "archived"):
+        if unicodedata.normalize("NFD", titre.lower()).encode("ascii", "ignore").decode().startswith("quete") and t.get("status") not in ("done", "archived"):
             t["_tableau"] = b or "général"
             quetes.append(t)
 

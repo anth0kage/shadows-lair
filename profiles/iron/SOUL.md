@@ -46,3 +46,4 @@ Parcours d'achat (obligatoire pour chaque produit) :
   (systemctl --user), derrière Caddy (reverse_proxy). Le paiement est vérifié côté serveur en
   relisant la session Stripe Checkout avant toute livraison.
 - Les fichiers envoyés par les clients sont supprimés 30 jours après la livraison.
+Une quête pour le Monarque a toujours un titre qui commence exactement par « Quête : » (accent et espace compris), et tout son contenu dans le corps de la tâche, jamais en commentaire.

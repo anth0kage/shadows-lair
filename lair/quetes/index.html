@@ -1,4 +1,59 @@
-<!doctype html><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Quêtes du Monarque</title><style>body{font-family:system-ui,sans-serif;background:#0d0b14;color:#e8e3f5;max-width:760px;margin:auto;padding:16px}h1{color:#b48cff}h2{font-size:1.1em;margin:0 0 4px}section{border:1px solid #3a2d5c;border-radius:10px;padding:12px;margin:14px 0;background:#161226}.m{color:#9a90b5;font-size:.9em}pre{white-space:pre-wrap;font-family:inherit;margin:8px 0 0}</style><h1>Journal des quêtes</h1><p class='m'>Mis à jour le 04/10/2026 16:50 · 1 quête(s) active(s)</p><section><h2>1. Quête : page LinkedIn BuildGreen Analytics + connexion Postiz</h2><p class='m'>Quête importante · tableau : général · id : t_3ef03bbd</p><pre>Récompense : Présence LinkedIn activée et connectée à Postiz — permet de publier du contenu et de démarrer la prospection B2B pour BuildGreen Analytics.
+<!doctype html><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Quêtes du Monarque</title><style>body{font-family:system-ui,sans-serif;background:#0d0b14;color:#e8e3f5;max-width:760px;margin:auto;padding:16px}h1{color:#b48cff}h2{font-size:1.1em;margin:0 0 4px}section{border:1px solid #3a2d5c;border-radius:10px;padding:12px;margin:14px 0;background:#161226}.m{color:#9a90b5;font-size:.9em}pre{white-space:pre-wrap;font-family:inherit;margin:8px 0 0}</style><h1>Journal des quêtes</h1><p class='m'>Mis à jour le 04/10/2026 17:50 · 2 quête(s) active(s)</p><section><h2>1. Quête : Achat de contrôle BuildGreen (v2)</h2><p class='m'>Quête principale · tableau : général · id : t_10789e12</p><pre>OBJECTIF
+Vérifier de bout en bout, dans un vrai navigateur, le parcours d&#x27;achat BuildGreen corrigé (v2) : paiement à 0 € avec un code promo, arrivée directe sur le tableau de bord, mot de passe, reconnexion, email de confirmation, analyse et export CSV. Durée : environ 10 minutes.
+
+CODE PROMO (usage unique, réservé au Monarque)
+Code : BGQVWVARZTNZMRC4
+- 100 % de réduction, première période uniquement, 1 seule utilisation.
+- Expire le mercredi 07/10/2026 à 19:33 (heure de Paris), soit 72 h après sa création.
+- Pas de restriction « première commande » : valable même si tu es déjà client Stripe.
+Ne le partage pas : il vaut un abonnement offert.
+
+ÉTAPES ET RÉSULTATS ATTENDUS
+
+1. Aller sur https://buildgreen.app/#offres
+   - Choisir l&#x27;offre Artisan (250 € HT / mois).
+   - Périmètre : 1 département.
+   - Renseigner la structure (nom, email), consulter le récapitulatif, cliquer sur « Payer ».
+   Attendu : redirection vers une page Stripe Checkout en euros, produit Artisan, 250,00 € HT.
+
+2. Sur la page Stripe :
+   - Cliquer sur « Ajouter un code promotionnel ».
+   - Saisir le code BGQVWVARZTNZMRC4 puis valider.
+   Attendu : le code est accepté, le total passe à 0,00 €, aucune carte n&#x27;est demandée.
+   - Cliquer sur « Payer et s&#x27;abonner ».
+   Attendu : le paiement aboutit sans saisie de carte.
+   À signaler (capture) : code refusé, total différent de 0,00 €, carte demandée malgré le total à 0 €, erreur après le clic.
+
+3. Arrivée après paiement.
+   Attendu : arrivée DIRECTE sur le tableau de bord (pas de page intermédiaire ni d&#x27;attente de livraison).
+   À signaler (capture) : page de remerciement bloquée, message d&#x27;attente, erreur.
+
+4. Choisir un mot de passe (la page le propose à l&#x27;arrivée).
+   Attendu : mot de passe enregistré, accès confirmé au tableau de bord.
+   À signaler : refus du mot de passe, message d&#x27;erreur.
+
+5. Se déconnecter puis se reconnecter (email + le mot de passe choisi).
+   Attendu : déconnexion propre, reconnexion réussie, retour au tableau de bord.
+   À signaler : connexion impossible, session non fermée.
+
+6. Vérifier la boîte mail utilisée à l&#x27;étape 1.
+   Attendu : un email « Commande confirmée » (facture ou reçu, lien vers le tableau de bord, mention de l&#x27;éditeur).
+   À signaler (capture) : email absent après 5 minutes, contenu faux, lien cassé.
+
+7. Lancer une analyse depuis le tableau de bord, puis exporter le résultat en CSV.
+   Attendu : l&#x27;analyse se termine, apparaît dans l&#x27;historique, le fichier CSV se télécharge et s&#x27;ouvre correctement.
+   À signaler (capture) : analyse bloquée, export vide ou illisible.
+
+À LA FIN : ANNULER L&#x27;ABONNEMENT TEST
+Depuis le portail Stripe (lien dans l&#x27;email ou le tableau de bord) ou depuis le tableau de bord Stripe (Clients &gt; abonnement &gt; Annuler).
+- Aujourd&#x27;hui : 0 €.
+- Le mois suivant : 250 € HT seraient facturés si une carte a été ajoutée. Sans carte, la facture échoue d&#x27;elle-même, mais annule quand même.
+
+CE QU&#x27;IL FAUT ME REMONTER
+Pour chaque étape : OK ou KO, avec capture d&#x27;écran en cas de KO. Si tout est OK, un simple « tout OK » suffit.
+
+CONTEXTE
+Suite de la correction du parcours après paiement (t_27639272), testée par Bellion (t_6a89336e) : 15 critères sur 21 validés. Le champ de code promo est bien visible sur la page Stripe, mais le navigateur automatisé n&#x27;a pas pu finaliser le formulaire Stripe (interface React) : d&#x27;où ce test manuel dans un vrai navigateur.</pre></section><section><h2>2. Quête : page LinkedIn BuildGreen Analytics + connexion Postiz</h2><p class='m'>Quête importante · tableau : général · id : t_3ef03bbd</p><pre>Récompense : Présence LinkedIn activée et connectée à Postiz — permet de publier du contenu et de démarrer la prospection B2B pour BuildGreen Analytics.
 
 Durée estimée : 20 minutes.
 

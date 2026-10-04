@@ -1,4 +1,4 @@
-<!doctype html><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Quêtes du Monarque</title><style>body{font-family:system-ui,sans-serif;background:#0d0b14;color:#e8e3f5;max-width:760px;margin:auto;padding:16px}h1{color:#b48cff}h2{font-size:1.1em;margin:0 0 4px}section{border:1px solid #3a2d5c;border-radius:10px;padding:12px;margin:14px 0;background:#161226}.m{color:#9a90b5;font-size:.9em}pre{white-space:pre-wrap;font-family:inherit;margin:8px 0 0}</style><h1>Journal des quêtes</h1><p class='m'>Mis à jour le 04/10/2026 19:50 · 2 quête(s) active(s)</p><section><h2>1. Quête : Achat de contrôle BuildGreen (v2)</h2><p class='m'>Quête principale · tableau : général · id : t_10789e12</p><pre>OBJECTIF
+<!doctype html><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Quêtes du Monarque</title><style>body{font-family:system-ui,sans-serif;background:#0d0b14;color:#e8e3f5;max-width:760px;margin:auto;padding:16px}h1{color:#b48cff}h2{font-size:1.1em;margin:0 0 4px}section{border:1px solid #3a2d5c;border-radius:10px;padding:12px;margin:14px 0;background:#161226}.m{color:#9a90b5;font-size:.9em}pre{white-space:pre-wrap;font-family:inherit;margin:8px 0 0}</style><h1>Journal des quêtes</h1><p class='m'>Mis à jour le 04/10/2026 20:50 · 4 quête(s) active(s)</p><section><h2>1. Quête : Achat de contrôle BuildGreen (v2)</h2><p class='m'>Quête principale · tableau : général · id : t_10789e12</p><pre>OBJECTIF
 Vérifier de bout en bout, dans un vrai navigateur, le parcours d&#x27;achat BuildGreen corrigé (v2) : paiement à 0 € avec un code promo, arrivée directe sur le tableau de bord, mot de passe, reconnexion, email de confirmation, analyse et export CSV. Durée : environ 10 minutes.
 
 CODE PROMO (usage unique, réservé au Monarque)
@@ -53,7 +53,20 @@ CE QU&#x27;IL FAUT ME REMONTER
 Pour chaque étape : OK ou KO, avec capture d&#x27;écran en cas de KO. Si tout est OK, un simple « tout OK » suffit.
 
 CONTEXTE
-Suite de la correction du parcours après paiement (t_27639272), testée par Bellion (t_6a89336e) : 15 critères sur 21 validés. Le champ de code promo est bien visible sur la page Stripe, mais le navigateur automatisé n&#x27;a pas pu finaliser le formulaire Stripe (interface React) : d&#x27;où ce test manuel dans un vrai navigateur.</pre></section><section><h2>2. Quête : page LinkedIn BuildGreen Analytics + connexion Postiz</h2><p class='m'>Quête importante · tableau : général · id : t_3ef03bbd</p><pre>Récompense : Présence LinkedIn activée et connectée à Postiz — permet de publier du contenu et de démarrer la prospection B2B pour BuildGreen Analytics.
+Suite de la correction du parcours après paiement (t_27639272), testée par Bellion (t_6a89336e) : 15 critères sur 21 validés. Le champ de code promo est bien visible sur la page Stripe, mais le navigateur automatisé n&#x27;a pas pu finaliser le formulaire Stripe (interface React) : d&#x27;où ce test manuel dans un vrai navigateur.</pre></section><section><h2>2. Quête : Recharger le crédit Porkbun (50 $)</h2><p class='m'>Quête principale · tableau : général · id : t_1dd99f18</p><pre>Récompense : Débloque l&#x27;achat de nouveaux domaines (produits, prospection) et sécurise les renouvellements de buildgreen.app et mailbuildgreen.com.
+
+Durée estimée : 10 minutes.
+
+Étapes :
+1. Va sur https://porkbun.com/account/credit et connecte-toi au compte Porkbun du Lair.
+2. Si aucune carte bancaire n&#x27;est enregistrée, ajoutes-en une dans « Payment Methods » (obligatoire : l&#x27;API ne permet pas d&#x27;ajouter une carte).
+3. Sur la page Account Credit, saisis le montant : 50.00 USD.
+4. Valide le paiement. Le crédit apparaît immédiatement.
+
+Fichiers : aucun.
+
+Pour valider : hermes kanban complete t_40ca3dc1 --result &quot;Crédit Porkbun rechargé de X $&quot; (remplace X par le montant affiché après rechargement).
+Une fois cette quête terminée, le solde sera vérifié automatiquement.</pre></section><section><h2>3. Quête : page LinkedIn BuildGreen Analytics + connexion Postiz</h2><p class='m'>Quête importante · tableau : général · id : t_3ef03bbd</p><pre>Récompense : Présence LinkedIn activée et connectée à Postiz — permet de publier du contenu et de démarrer la prospection B2B pour BuildGreen Analytics.
 
 Durée estimée : 20 minutes.
 
@@ -70,4 +83,4 @@ Fichiers :
 - ~/lair-sites/buildgreen/kit/logo.svg (logo)
 - ~/lair-sites/buildgreen/kit/README.md (instructions visuelles)
 
-Pour valider : hermes kanban complete t_3ef03bbd --result &quot;Page LinkedIn créée : &lt;URL&gt; — connectée à Postiz, accès dans coffre linkedin-buildgreen, FICHE.md à jour.&quot;</pre></section>
+Pour valider : hermes kanban complete t_3ef03bbd --result &quot;Page LinkedIn créée : &lt;URL&gt; — connectée à Postiz, accès dans coffre linkedin-buildgreen, FICHE.md à jour.&quot;</pre></section><section><h2>4. Quête : rechargement OpenRouter (crédit à 11,6 %)</h2><p class='m'>Quête secondaire · tableau : général · id : t_c760a1d7</p><pre>Clé OpenRouter : 48,65 $ utilisés sur 55 $ de crédit (88,4 %). Le seuil d&#x27;alerte de 80 % est dépassé. Recharger le crédit OpenRouter. Montant suggéré : 50 $.</pre></section>

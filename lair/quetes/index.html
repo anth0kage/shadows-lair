@@ -1,4 +1,25 @@
-<!doctype html><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Quêtes du Monarque</title><style>body{font-family:system-ui,sans-serif;background:#0d0b14;color:#e8e3f5;max-width:760px;margin:auto;padding:16px}h1{color:#b48cff}h2{font-size:1.1em;margin:0 0 4px}section{border:1px solid #3a2d5c;border-radius:10px;padding:12px;margin:14px 0;background:#161226}.m{color:#9a90b5;font-size:.9em}pre{white-space:pre-wrap;font-family:inherit;margin:8px 0 0}</style><h1>Journal des quêtes</h1><p class='m'>Mis à jour le 04/10/2026 01:50 · 1 quête(s) active(s)</p><section><h2>1. Quête : page LinkedIn BuildGreen Analytics + connexion Postiz</h2><p class='m'>Quête importante · tableau : général · id : t_3ef03bbd</p><pre>Récompense : Présence LinkedIn activée et connectée à Postiz — permet de publier du contenu et de démarrer la prospection B2B pour BuildGreen Analytics.
+<!doctype html><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Quêtes du Monarque</title><style>body{font-family:system-ui,sans-serif;background:#0d0b14;color:#e8e3f5;max-width:760px;margin:auto;padding:16px}h1{color:#b48cff}h2{font-size:1.1em;margin:0 0 4px}section{border:1px solid #3a2d5c;border-radius:10px;padding:12px;margin:14px 0;background:#161226}.m{color:#9a90b5;font-size:.9em}pre{white-space:pre-wrap;font-family:inherit;margin:8px 0 0}</style><h1>Journal des quêtes</h1><p class='m'>Mis à jour le 04/10/2026 02:50 · 2 quête(s) active(s)</p><section><h2>1. Quête : Achat de contrôle BuildGreen (coupon 100 %, 0 €)</h2><p class='m'>Quête principale · tableau : général · id : t_e83b2b05</p><pre>Objectif : prouver que le parcours BuildGreen va de bout en bout (achat, page de remerciement, facture, livraison). Durée : environ 15 minutes. Coût : 0 € (coupon 100 % appliqué automatiquement).
+
+Pourquoi toi : une ombre ne peut ni payer avec une vraie carte ni rembourser. Mais cette fois le coupon ramène le total à 0 € — aucun débit, aucun remboursement nécessaire.
+
+Ce qui a changé depuis la quête t_77ad319e :
+- Un coupon Stripe 100 % (code jxi1hHvA, usage unique) a été créé pour le test.
+- Il est injecté automatiquement dans la session Checkout quand tu passes par l&#x27;URL avec ?coupon_test=1.
+- Le total Stripe sera de 0,00 €. Tu devras quand même saisir une vraie carte (exigence Stripe), mais rien n&#x27;est débité.
+- Le coupon expire automatiquement le 5 octobre 2026.
+
+Offre testée : Artisan, 250 € HT / mois (la moins chère). Département : 13 (Bouches-du-Rhône).
+
+Étapes :
+1. Ouvre https://buildgreen.app/commander/artisan/perimetre?coupon_test=1, tape « 13 » dans la recherche de département, choisis-le, activité « Entreprise de rénovation », puis remplis l&#x27;étape 2 avec une adresse email à toi que tu peux lire. (Le paramètre coupon_test=1 doit rester dans l&#x27;URL pendant tout le parcours.)
+2. Au récapitulatif, vérifie l&#x27;aperçu réel puis clique « Payer 250 € HT avec Stripe ». Important : l&#x27;URL du bouton Payer contient déjà ?coupon_test=1. La page Stripe doit afficher 0,00 € (total après coupon). Vérifie aussi la phrase « Paiement sécurisé par Stripe, opéré par Lya AI, éditeur de BuildGreen Analytics ». Paie par carte.
+3. Page de remerciement : tu dois revenir sur https://buildgreen.app/merci?session_id=… avec « Paiement confirmé » et le bouton « Accéder à mon espace ». Si tu vois « Nous n&#x27;avons pas pu confirmer votre paiement », c&#x27;est un défaut : note-le en commentaire et arrête-toi.
+4. Facture : dans Stripe (Facturation &gt; Factures), une facture de 250,00 € doit exister pour ce client, avec 250,00 € de remise (total 0,00 €), payée, avec la mention « TVA non applicable, art. 293 B du CGI ». Contrôle aussi l&#x27;email Stripe de facture/reçu.
+5. Livraison : tu dois recevoir l&#x27;email « Votre accès BuildGreen Analytics » dans les 2 minutes. Clique le lien : l&#x27;espace client s&#x27;ouvre, le périmètre est le département 13, le quota est de 100 bâtiments / mois. Lance une analyse (adresse à Marseille) : une fiche avec score et étiquette estimée s&#x27;affiche ; l&#x27;export CSV fonctionne.
+6. Webhook : dans Stripe (Développeurs &gt; Webhooks), l&#x27;endpoint https://buildgreen.app/webhooks/stripe doit montrer l&#x27;événement checkout.session.completed livré avec le code 200.
+7. Pas de remboursement nécessaire (total = 0 €). Tu peux laisser l&#x27;abonnement : il ne sera pas renouvelé (le coupon est à usage unique, le prochain cycle serait au prix normal — résilie-le quand même si tu préfères, dans Stripe &gt; Abonnements).
+
+Si tout est correct, clos cette quête. Sinon, écris en commentaire ce qui a échoué et laisse-la ouverte.</pre></section><section><h2>2. Quête : page LinkedIn BuildGreen Analytics + connexion Postiz</h2><p class='m'>Quête importante · tableau : général · id : t_3ef03bbd</p><pre>Récompense : Présence LinkedIn activée et connectée à Postiz — permet de publier du contenu et de démarrer la prospection B2B pour BuildGreen Analytics.
 
 Durée estimée : 20 minutes.
 

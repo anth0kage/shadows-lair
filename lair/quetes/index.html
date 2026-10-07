@@ -1,4 +1,4 @@
-<!doctype html><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Quêtes du Monarque</title><style>body{font-family:system-ui,sans-serif;background:#0d0b14;color:#e8e3f5;max-width:760px;margin:auto;padding:16px}h1{color:#b48cff}h2{font-size:1.1em;margin:0 0 4px}section{border:1px solid #3a2d5c;border-radius:10px;padding:12px;margin:14px 0;background:#161226}.m{color:#9a90b5;font-size:.9em}pre{white-space:pre-wrap;font-family:inherit;margin:8px 0 0}</style><h1>Journal des quêtes</h1><p class='m'>Mis à jour le 07/10/2026 06:50 · 3 quête(s) active(s)</p><section><h2>1. Quête : Achat de contrôle BuildGreen (v2)</h2><p class='m'>Quête principale · tableau : général · id : t_10789e12</p><pre>OBJECTIF
+<!doctype html><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Quêtes du Monarque</title><style>body{font-family:system-ui,sans-serif;background:#0d0b14;color:#e8e3f5;max-width:760px;margin:auto;padding:16px}h1{color:#b48cff}h2{font-size:1.1em;margin:0 0 4px}section{border:1px solid #3a2d5c;border-radius:10px;padding:12px;margin:14px 0;background:#161226}.m{color:#9a90b5;font-size:.9em}pre{white-space:pre-wrap;font-family:inherit;margin:8px 0 0}</style><h1>Journal des quêtes</h1><p class='m'>Mis à jour le 07/10/2026 07:50 · 6 quête(s) active(s)</p><section><h2>1. Quête : Achat de contrôle BuildGreen (v2)</h2><p class='m'>Quête principale · tableau : général · id : t_10789e12</p><pre>OBJECTIF
 Vérifier de bout en bout, dans un vrai navigateur, le parcours d&#x27;achat BuildGreen corrigé (v2) : paiement à 0 € avec un code promo, arrivée directe sur le tableau de bord, mot de passe, reconnexion, email de confirmation, analyse et export CSV. Durée : environ 10 minutes.
 
 CODE PROMO (usage unique, réservé au Monarque)
@@ -66,7 +66,37 @@ Durée estimée : 10 minutes.
 Fichiers : aucun.
 
 Pour valider : hermes kanban complete t_40ca3dc1 --result &quot;Crédit Porkbun rechargé de X $&quot; (remplace X par le montant affiché après rechargement).
-Une fois cette quête terminée, le solde sera vérifié automatiquement.</pre></section><section><h2>3. Quête : page LinkedIn BuildGreen Analytics + connexion Postiz</h2><p class='m'>Quête importante · tableau : général · id : t_3ef03bbd</p><pre>Récompense : Présence LinkedIn activée et connectée à Postiz — permet de publier du contenu et de démarrer la prospection B2B pour BuildGreen Analytics.
+Une fois cette quête terminée, le solde sera vérifié automatiquement.</pre></section><section><h2>3. Quête : Validation finale ZANtrack</h2><p class='m'>Quête principale · tableau : général · id : t_3f00f325</p><pre>Quête pour le Monarque : valider le site ZANtrack avant toute prospection.
+
+Récompense : Greed pourra commencer la prospection commerciale.
+Durée estimée : 10 minutes.
+
+Étapes :
+1. Ouvre les captures d&#x27;écran dans /home/monarch/lair-sites/zantrack/captures/
+2. Vérifie que le site est professionnel et conforme à ce que tu attends
+3. Si OK, valide avec la commande ci-dessous
+4. Si pas OK, indique ce qui ne va pas dans le résultat
+
+Fichiers fournis :
+- Captures dans /home/monarch/lair-sites/zantrack/captures/
+- Fiche produit : /home/monarch/.hermes/lair/produits/zantrack/FICHE.md
+
+Pour valider :
+hermes kanban complete t_ID --result &quot;Site validé, prospection autorisée&quot; --board zantrack
+ou :
+hermes kanban complete t_ID --result &quot;Refusé : &lt;raison&gt;&quot; --board zantrack</pre></section><section><h2>4. Quête : Valider l&#x27;ordre de construction ComplyCPE</h2><p class='m'>Quête principale · tableau : général · id : t_3fdac273</p><pre>## Contexte
+Le site ComplyCPE a été construit, optimisé SEO, et validé par Bellion (rapport VALIDATION.md).
+Le Monarque doit maintenant valider l&#x27;ordre de construction avant toute prospection.
+
+Cette tâche sera remplie avec le contenu de la quête une fois que Bellion aura livré son rapport de validation. En attendant, elle reste bloquée.
+
+## Format attendu (sera rempli après validation Bellion)
+- Récompense : mise en production et début de la prospection
+- Durée estimée : X minutes
+- Étapes : visite guidée du site, achat de contrôle
+- Fichiers : lien vers le site, captures de Bellion
+
+La quête sera créée avec --priority 3 (bloque le lancement et les ventes).</pre></section><section><h2>5. Quête : page LinkedIn BuildGreen Analytics + connexion Postiz</h2><p class='m'>Quête importante · tableau : général · id : t_3ef03bbd</p><pre>Récompense : Présence LinkedIn activée et connectée à Postiz — permet de publier du contenu et de démarrer la prospection B2B pour BuildGreen Analytics.
 
 Durée estimée : 20 minutes.
 
@@ -83,4 +113,17 @@ Fichiers :
 - ~/lair-sites/buildgreen/kit/logo.svg (logo)
 - ~/lair-sites/buildgreen/kit/README.md (instructions visuelles)
 
-Pour valider : hermes kanban complete t_3ef03bbd --result &quot;Page LinkedIn créée : &lt;URL&gt; — connectée à Postiz, accès dans coffre linkedin-buildgreen, FICHE.md à jour.&quot;</pre></section>
+Pour valider : hermes kanban complete t_3ef03bbd --result &quot;Page LinkedIn créée : &lt;URL&gt; — connectée à Postiz, accès dans coffre linkedin-buildgreen, FICHE.md à jour.&quot;</pre></section><section><h2>6. Quête : Achat domaine ZANtrack sur Porkbun</h2><p class='m'>Quête importante · tableau : général · id : t_2a54948f</p><pre>Quête pour le Monarque : acheter le domaine de ZANtrack sur Porkbun.
+
+Récompense : le site ZANtrack pourra être mis en ligne et les emails configurés.
+Durée estimée : 5 minutes.
+
+Étapes :
+1. Va sur https://porkbun.com et connecte-toi
+2. Cherche et achète le domaine zantrack.app (ou zantrack.fr si .app non dispo)
+   - Budget max : 15 $/an (règle tresorerie.md)
+3. Optionnel dans la foulée : achète aussi la variante pour le domaine d&#x27;envoi (zantrackmail.com ou équivalent, 15 $/an max)
+4. Note les identifiants Porkbun dans le commentaire de complétion de cette quête
+
+Fichiers : aucun.
+Pour valider : hermes kanban complete t_ID --result &quot;Domaine acheté : &lt;domaine&gt; (ID Porkbun: &lt;id&gt;)&quot; --board zantrack</pre></section>

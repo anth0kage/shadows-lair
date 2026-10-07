@@ -1,1 +1,3 @@
 - BuildGreen Analytics (buildgreen) — niveau 1 — lancé le 2026-10-03
+- ComplyCPE (complycpe) — niveau 1 — lancé le 2026-10-07
+- ZANtrack (zantrack) — niveau 1 — lancé le 2026-10-07

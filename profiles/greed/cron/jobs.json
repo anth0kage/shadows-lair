@@ -23,36 +23,36 @@
       "schedule_display": "0 7-21/2 * * *",
       "repeat": {
         "times": null,
-        "completed": 45
+        "completed": 46
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-10-03T18:38:23.563190+00:00",
-      "next_run_at": "2026-10-09T13:00:00+00:00",
-      "last_run_at": "2026-10-09T11:00:36.805017+00:00",
+      "next_run_at": "2026-10-09T15:00:00+00:00",
+      "last_run_at": "2026-10-09T13:00:38.234522+00:00",
       "last_status": "error",
-      "last_error": "RuntimeError: HTTP 402: This request requires more credits, or fewer max_tokens. You requested up to 131072 tokens, but can only afford 9732. To increase, visit https://openrouter.ai/workspaces/default/keys/a8f6db97d205f45c56944a911a7df9a59088f14734ce1fd76c025161c2d6d66b and adjust the key's monthly limit",
+      "last_error": "RuntimeError: HTTP 402: This request requires more credits, or fewer max_tokens. You requested up to 131072 tokens, but can only afford 55612. To increase, visit https://openrouter.ai/workspaces/default/keys/a8f6db97d205f45c56944a911a7df9a59088f14734ce1fd76c025161c2d6d66b and adjust the key's monthly limit",
       "last_delivery_error": null,
       "last_delivery_unverified": null,
       "last_failure": {
-        "at": "2026-10-09T11:00:36.805017+00:00",
-        "detail": "RuntimeError: HTTP 402: This request requires more credits, or fewer max_tokens. You requested up to 131072 tokens, but can only afford 9732. To increase, visit https://openrouter.ai/workspaces/default/keys/a8f6db97d205f45c56944a911a7df9a59088f14734ce1fd76c025161c2d6d66b and adjust the key's monthly limit"
+        "at": "2026-10-09T13:00:38.234522+00:00",
+        "detail": "RuntimeError: HTTP 402: This request requires more credits, or fewer max_tokens. You requested up to 131072 tokens, but can only afford 55612. To increase, visit https://openrouter.ai/workspaces/default/keys/a8f6db97d205f45c56944a911a7df9a59088f14734ce1fd76c025161c2d6d66b and adjust the key's monthly limit"
       },
-      "failure_streak": 18,
+      "failure_streak": 19,
       "deliver": "local",
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
       "last_dispatch": {
-        "scheduled_at": "2026-10-09T11:00:00+00:00",
-        "dispatched_at": "2026-10-09T11:00:21.227674+00:00",
+        "scheduled_at": "2026-10-09T13:00:00+00:00",
+        "dispatched_at": "2026-10-09T13:00:21.223475+00:00",
         "lateness_seconds": 21.2,
         "kind": "on_time"
       },
       "fire_claim": null
     }
   ],
-  "updated_at": "2026-10-09T11:00:36.858357+00:00"
+  "updated_at": "2026-10-09T13:00:38.276845+00:00"
 }

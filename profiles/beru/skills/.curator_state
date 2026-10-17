@@ -1,9 +1,9 @@
 {
-  "last_report_path": "/home/monarch/.hermes/profiles/beru/logs/curator/20261010-052628",
-  "last_run_at": "2026-10-10T05:26:28.247326+00:00",
-  "last_run_duration_seconds": 11.898292,
+  "last_report_path": "/home/monarch/.hermes/profiles/beru/logs/curator/20261017-054644",
+  "last_run_at": "2026-10-17T05:46:44.959983+00:00",
+  "last_run_duration_seconds": 13.162413,
   "last_run_summary": "auto: no changes; llm: skipped (consolidation off)",
   "last_run_summary_shown_at": null,
   "paused": false,
-  "run_count": 1
+  "run_count": 2
 }

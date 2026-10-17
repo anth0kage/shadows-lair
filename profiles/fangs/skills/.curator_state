@@ -1,9 +1,9 @@
 {
-  "last_report_path": "/home/monarch/.hermes/profiles/fangs/logs/curator/20261010-052636",
-  "last_run_at": "2026-10-10T05:26:36.979019+00:00",
-  "last_run_duration_seconds": 6.425285,
+  "last_report_path": "/home/monarch/.hermes/profiles/fangs/logs/curator/20261017-054653",
+  "last_run_at": "2026-10-17T05:46:53.556442+00:00",
+  "last_run_duration_seconds": 6.810057,
   "last_run_summary": "auto: no changes; llm: skipped (consolidation off)",
   "last_run_summary_shown_at": null,
   "paused": false,
-  "run_count": 1
+  "run_count": 2
 }

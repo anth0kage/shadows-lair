@@ -76,36 +76,36 @@
       "schedule_display": "0 8 * * 1",
       "repeat": {
         "times": null,
-        "completed": 2
+        "completed": 3
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-10-03T04:32:47.124220+00:00",
-      "next_run_at": "2026-10-19T08:00:00+00:00",
-      "last_run_at": "2026-10-12T08:00:36.338550+00:00",
+      "next_run_at": "2026-10-26T08:00:00+00:00",
+      "last_run_at": "2026-10-19T08:00:53.006868+00:00",
       "last_status": "error",
       "last_error": "RuntimeError: HTTP 402: This request requires more credits, or fewer max_tokens. You requested up to 131072 tokens, but can only afford 9452. To increase, visit https://openrouter.ai/workspaces/default/keys/a8f6db97d205f45c56944a911a7df9a59088f14734ce1fd76c025161c2d6d66b and adjust the key's monthly limit",
       "last_delivery_error": null,
       "last_delivery_unverified": null,
       "last_failure": {
-        "at": "2026-10-12T08:00:36.338550+00:00",
+        "at": "2026-10-19T08:00:53.006868+00:00",
         "detail": "RuntimeError: HTTP 402: This request requires more credits, or fewer max_tokens. You requested up to 131072 tokens, but can only afford 9452. To increase, visit https://openrouter.ai/workspaces/default/keys/a8f6db97d205f45c56944a911a7df9a59088f14734ce1fd76c025161c2d6d66b and adjust the key's monthly limit"
       },
-      "failure_streak": 1,
+      "failure_streak": 2,
       "deliver": "local",
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
       "last_dispatch": {
-        "scheduled_at": "2026-10-12T08:00:00+00:00",
-        "dispatched_at": "2026-10-12T08:00:20.515679+00:00",
+        "scheduled_at": "2026-10-19T08:00:00+00:00",
+        "dispatched_at": "2026-10-19T08:00:20.524606+00:00",
         "lateness_seconds": 20.5,
         "kind": "on_time"
       },
       "fire_claim": null
     }
   ],
-  "updated_at": "2026-10-19T07:00:41.808168+00:00"
+  "updated_at": "2026-10-19T08:00:53.082286+00:00"
 }

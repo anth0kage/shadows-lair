@@ -1,9 +1,9 @@
 {
-  "last_report_path": "/home/monarch/.hermes/profiles/greed/logs/curator/20261017-054658",
-  "last_run_at": "2026-10-17T05:46:58.955810+00:00",
-  "last_run_duration_seconds": 1.896213,
+  "last_report_path": "/home/monarch/.hermes/profiles/greed/logs/curator/20261024-062315",
+  "last_run_at": "2026-10-24T06:23:15.027193+00:00",
+  "last_run_duration_seconds": 2.069946,
   "last_run_summary": "auto: no changes; llm: skipped (consolidation off)",
   "last_run_summary_shown_at": null,
   "paused": false,
-  "run_count": 2
+  "run_count": 3
 }

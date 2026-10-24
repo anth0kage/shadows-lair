@@ -1,9 +1,9 @@
 {
-  "last_report_path": "/home/monarch/.hermes/profiles/bellion/logs/curator/20261017-054641",
-  "last_run_at": "2026-10-17T05:46:41.532574+00:00",
-  "last_run_duration_seconds": 10.510273,
+  "last_report_path": "/home/monarch/.hermes/profiles/bellion/logs/curator/20261024-062301",
+  "last_run_at": "2026-10-24T06:23:01.761185+00:00",
+  "last_run_duration_seconds": 7.213431,
   "last_run_summary": "auto: no changes; llm: skipped (consolidation off)",
   "last_run_summary_shown_at": null,
   "paused": false,
-  "run_count": 2
+  "run_count": 3
 }
